@@ -3,6 +3,7 @@ const typeDefs = require("./graphQl/graphQlConfig/typeDefs")
 const resolvers = require("./graphQl/graphQlConfig/resolvers")
 const server = new ApolloServer({
     typeDefs,
-    resolvers
+    resolvers,
+    playground:true
 })
 module.exports = server
