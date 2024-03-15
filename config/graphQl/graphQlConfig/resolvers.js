@@ -35,6 +35,10 @@ module.exports = {
                     age,
                     email
                 });
+                const userExist = await Models.User.findOne({email});
+                if(userExist){
+                    return {type: "error", message: "User with same email address already exist", data: null}
+                }
                 const savedUser =  await user.save();
                 if(savedUser){
                     return {type: "success", message: "User created successfully", data: savedUser}
