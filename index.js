@@ -5,7 +5,7 @@ const PORT = process.env.PORT
 const server = require("./config/apolloServer")
 mongoose.connect(MONGO_DB_URI).then(() => {
     console.log("Connected to MongoDB")
-    return server.listen({ port: PORT })
+    return server.listen({ port: PORT, introspect: true })
 }).then(({ url }) => {
     console.log(`Apollo Server ready at ${url}`)
 })
